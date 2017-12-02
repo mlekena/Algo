@@ -48,22 +48,28 @@ add_executable(hello ${SRC_DIR}/helloworld.cc)
 add_executable(main ${SRC_DIR}/main.cc)
 target_link_libraries(main "${LIBALGO}")
 
+
+# TESTING 
+include(CTest)
+
 enable_testing()
 
 if(BUILD_TESTING)
-  add_subdirectory(third_party/googletest)
+  add_subdirectory(thirdparty/googletest)
   include_directories(thirdparty/googletest/googletest/include)
   include_directories(thirdparty/googletest/googlemock/include)
 
+    # algotest
   set(TEST_TARGETS
-    algotest
+    linked_list_test
     )
 
-  foreach(target ${TEST_TARGET})
+  foreach(target ${TEST_TARGETS})
     add_executable(${target} tests/${target}.cc)
     target_link_libraries(${target} "${LIBALGO}" gtest_main gmock)
   endforeach(target)
 
   # add_test(NAME range_map_test COMMAND range_map_test)
   #   add_test(NAME bloaty_test_x86-64 COMMAND bloaty_test WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tests/testdata/linux-x86_64)
+  add_test(NAME linked_list_test COMMAND linked_list_test)
 endif()

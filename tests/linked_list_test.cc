@@ -25,5 +25,18 @@ TEST_F(LinkedListTest, filled_link_list_not_empty){
   EXPECT_EQ(sll.isEmpty(), false);
 }
 
+TEST_F(LinkedListTest, empty_list_length_zero){
+  algo::SLinkedList sll;
+  EXPECT_EQ(sll.size(), 0);
+}
 
+TEST_F(LinkedListTest, size_of_5_with_5_inserts){
+  algo::SLinkedList sll;
+  for (int i : vec_of_5){
+    sll.push_back(i);
+  }
+
+  EXPECT_EQ(sll.isEmpty(), false);
+  EXPECT_EQ(sll.size(), 5);
+}
 

@@ -21,20 +21,21 @@
 
 class LinkedListTest : public ::testing::Test{
   public:
+    std::vector<int> vec_of_5;
+    std::vector<int> vec_of_hundred;
+    std::vector<int> empty_vec;
+    
     LinkedListTest(): 
-      vec1({1,2,3,4,5}), vec2(), empty_vec(){
-        vec1.reserve(5);
-        vec2.reserve(100);
+      vec_of_5({1,2,3,4,5}), vec_of_hundred(), empty_vec(){
+        vec_of_5.reserve(5);
+        vec_of_hundred.reserve(100);
         for (int i = 0; i < 100; i++){
-          vec2.push_back(i);
+          vec_of_hundred.push_back(i);
         }
       }
 
   private:
     
-    std::vector<int> vec1;
-    std::vector<int> vec2;
-    std::vector<int> empty_vec;
 };
 #endif
 

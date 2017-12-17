@@ -6,11 +6,10 @@
 namespace algo{
 
   bool SLinkedList::isEmpty(){
-    return is_empty;
+    return head == nullptr;
   }
 
   bool SLinkedList::push_back(int num){
-    is_empty = false;
     if (head == nullptr){
       head = std::make_shared<SLL_Node>(num);
       // std::cout << "HEAD++" << std::endl;
